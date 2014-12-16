@@ -12,7 +12,7 @@ import /init.trace.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
-    write /proc/1/oom_score_adj -1000
+    write /proc/1/oom_score_adj -16
 
     # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
     write /sys/fs/selinux/checkreqprot 0
@@ -32,7 +32,7 @@ on early-init
 on init
     sysclktz 0
 
-    loglevel 3
+    loglevel 4
 
     # Backward compatibility
     symlink /system/etc /etc
@@ -330,6 +330,7 @@ on post-fs-data
 on boot
     # basic network init
     ifup lo
+    ifup eth0
     hostname localhost
     domainname localdomain
 
@@ -498,6 +499,7 @@ service console /system/bin/sh
     seclabel u:r:shell:s0
 
 on property:ro.debuggable=1
+    start adbd
     start console
 
 # adbd is controlled via property triggers in init.<platform>.usb.rc
