@@ -330,7 +330,6 @@ on post-fs-data
 on boot
     # basic network init
     ifup lo
-    ifup eth0
     hostname localhost
     domainname localdomain
 
