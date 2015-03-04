@@ -94,7 +94,7 @@
 #define FUSE_TRACE 0
 
 #if FUSE_TRACE
-#define TRACE(x...) ALOGD(x)
+#define TRACE(x...) ALOGV(x)
 #else
 #define TRACE(x...) do {} while (0)
 #endif

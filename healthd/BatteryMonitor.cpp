@@ -264,11 +264,12 @@ bool BatteryMonitor::update(void) {
             snprintf(dmesgline, sizeof(dmesgline),
                  "battery none");
         }
-
+        /*
         KLOG_INFO(LOG_TAG, "%s chg=%s%s%s\n", dmesgline,
                   props.chargerAcOnline ? "a" : "",
                   props.chargerUsbOnline ? "u" : "",
                   props.chargerWirelessOnline ? "w" : "");
+                  */
     }
 
     healthd_mode_ops->battery_update(&props);

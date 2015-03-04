@@ -28,11 +28,11 @@ on early-init
 
     # create mountpoints
     mkdir /mnt 0775 root system
-
+    
 on init
     sysclktz 0
 
-    loglevel 4
+    loglevel 3
 
     # Backward compatibility
     symlink /system/etc /etc
@@ -325,7 +325,7 @@ on post-fs-data
     # must uncomment this line, otherwise encrypted filesystems
     # won't work.
     # Set indication (checked by vold) that we have finished this action
-    #setprop vold.post_fs_data_done 1
+    setprop vold.post_fs_data_done 1
 
 on boot
     # basic network init
